@@ -19,7 +19,9 @@ class EmployeeRepositoryImpl implements EmployeeRepository {
   @override
   Future<List<Employee>> getEmployees() async {
     final res = await _api.dio.get('/users', queryParameters: {'limit': 20});
-    return (res.data['users'] as List).map((e) => Employee.fromJson(e)).toList();
+    return (res.data['users'] as List)
+        .map((e) => Employee.fromJson(e))
+        .toList();
   }
 
   @override
@@ -30,7 +32,8 @@ class EmployeeRepositoryImpl implements EmployeeRepository {
 
   @override
   Future<Employee> update(Employee e) async {
-    if (e.id <= _maxServerId) await _api.dio.put('/users/${e.id}', data: e.toJson());
+    if (e.id <= _maxServerId)
+      await _api.dio.put('/users/${e.id}', data: e.toJson());
     return e;
   }
 

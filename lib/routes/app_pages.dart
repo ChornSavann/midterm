@@ -19,9 +19,12 @@ class AppBinding extends Bindings {
   @override
   void dependencies() {
     Get.put(ApiClient(), permanent: true);
-    Get.lazyPut<AuthRepository>(() => AuthRepositoryImpl(Get.find()), fenix: true);
-    Get.lazyPut<ProductRepository>(() => ProductRepositoryImpl(Get.find()), fenix: true);
-    Get.lazyPut<EmployeeRepository>(() => EmployeeRepositoryImpl(Get.find()), fenix: true);
+    Get.lazyPut<AuthRepository>(() => AuthRepositoryImpl(Get.find()),
+        fenix: true);
+    Get.lazyPut<ProductRepository>(() => ProductRepositoryImpl(Get.find()),
+        fenix: true);
+    Get.lazyPut<EmployeeRepository>(() => EmployeeRepositoryImpl(Get.find()),
+        fenix: true);
     Get.put(AuthController(Get.find()), permanent: true);
   }
 }
